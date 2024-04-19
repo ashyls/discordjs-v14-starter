@@ -7,6 +7,10 @@ const token = process.env.TOKEN;
 const databaseToken = process.env.DBTOKEN;
 
 const client = new Client({ intents: GatewayIntentBits.Guilds });
+client.once(Events.ClientReady, readyClient => {
+    console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+});
+
 client.commands = new Collection();
 client.buttons = new Collection();
 client.selectMenus = new Collection();
